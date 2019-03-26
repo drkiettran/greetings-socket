@@ -20,7 +20,7 @@ public class Server {
                 BufferedReader in = null;
                 PrintWriter out = null;
                 try (Socket socket = listener.accept()) {
-                    LOGGER.info("Connected on {}", socket.getPort());
+                    LOGGER.info("Connected on port {}", socket.getPort());
                     in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                     String name = in.readLine();

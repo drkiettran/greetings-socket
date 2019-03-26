@@ -29,11 +29,13 @@ public class Client {
             out.flush();
 
             LOGGER.info("Sent {}", name);
-            LOGGER.info("Waiting for input ...");
+            LOGGER.info("Waiting for input on port {}", clientSocket.getPort());
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             LOGGER.info("Received {}", in.readLine());
+            LOGGER.info("Done");
 
         } finally {
+            LOGGER.info("Close in/out streams");
             if (in != null) {
                 in.close();
             }
